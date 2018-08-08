@@ -4,13 +4,13 @@ class DefaultConfig(object):
     model = 'FCN'
 
 # config of data before training
-    train_data_root = '/Users/eulring/Efile/Dataset/kaggleSalt'
-    train_label_list = '/Users/eulring/Efile/Dataset/kaggleSalt/train.csv'
+    train_data_root = '/home/eulring/Dataset/kaggleSalt'
+    train_label_list = '/home/eulring/Dataset/kaggleSalt/train.csv'
 
     
 # config of data in training
-    batch_size = 4
-    use_gpu = False
+    batch_size = 2
+    use_gpu = True
     num_workers = 4
     print_freq = 10
     

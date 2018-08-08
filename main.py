@@ -27,8 +27,9 @@ def train(**kwargs):
     model = FCN8s()
     device = t.device('cpu')
     if opt.use_gpu == True:
-        device = t.device('cpu')
-
+        device = t.device("cuda:0" if t.cuda.is_available() else "cpu")
+    print(device)
+    model.to(device)
 # step2: data preparation
     train_data = KaggleSalt(root = opt.train_data_root)
     train_dataloader = DataLoader( train_data, opt.batch_size,
@@ -55,6 +56,8 @@ def train(**kwargs):
             label = label.to(device)
 
             # Forward pass
+            #import ipdb
+            #ipdb.set_trace()
             heatmap  = model(data)
             #import ipdb
             #ipdb.set_trace()
